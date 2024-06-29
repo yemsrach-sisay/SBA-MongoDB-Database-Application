@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= todo._id ? 'Edit' : 'Add' %> Todo
+    </title>
+</head>
+
+<body>
+    <h1>
+        <%= todo._id ? 'Edit' : 'Add' %> Todo
+    </h1>
+    <form action="<%= todo._id ? '/todos/edit/' + todo._id : '/todos' %>" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= todo.title %>" required>
+        <br>
+        <label for="completed">Completed:</label>
+        <input type="checkbox" id="completed" name="completed" <%=todo.completed ? 'checked' : '' %>>
+        <br>
+        <button type="submit">
+            <%= todo._id ? 'Update' : 'Add' %> Todo
+        </button>
+    </form>
+</body>
+
+</html>
